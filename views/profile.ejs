@@ -1,0 +1,174 @@
+<%- include('./partials/header.ejs') %>
+<style>
+    *{
+        overflow-x: auto;
+    }
+    body{
+        background-color: #F1F3F6;
+    }
+
+</style>
+<div class="bg-[#F1F3F6] w-[100vw] min-h-[100vh] flex justify-center items-center ">
+    <div class="bg-[#F1F3F6] w-[65vw] h-[140vh] flex justify-between py-8">
+        <div class="bg-[#F1F3F6] w-[30%] h-[100%] gap-6 flex flex-col">
+            <div class="bg-white w-full h-[90px] flex justify-equal items-center px-[10%] gap-4">
+                <%if(!user.profileImage){ %>
+                    <img id="profileicon" src="/images/pre/profile-male.svg" class="h-[60px] w-[60px] rounded-full">
+
+               <% } else{ %>
+                <img id="profileicon" src="/images/uploads/<%= user.profileImage %>" class="h-[60px] w-[60px] rounded-full">
+               <%} %>
+                
+                <form hidden action="/editprofile" method="post" enctype="multipart/form-data">
+                   <input id="updatediconinput" type="file" name="image">
+                   <input id="updatediconsubmitbtn" type="submit" value="">
+                </form> 
+                <div class="flex flex-col">
+                    <h3>Hello,</h3>
+                    <h3 class="font-semibold text-[18px]"><%= user.name  %></h3>
+                    <% if(user.identity=="seller") { %>
+                        <h3 class="font-medium text-[15px] text-[#939393] ">Seller</h3>
+                    <% }else{ %>
+                         <h3 class="font-medium text-[15px] text-[#939393] ">Customer</h3>
+                   <% } %>
+                   
+                </div>
+            </div>
+             <div class="bg-white w-full h-[800px] text-[20px] gap-4 ">
+                <div class="flex justify-start px-6  items-center  gap-4 py-5 text-[#797979] border-b-2 border-gray-300 ">
+                    <i class="fa-solid fa-wallet" style="color: #0362fc;"></i>
+                    <a class="hover:text-[#2874F0] cursor-pointer">MY ORDERS</a>
+                </div>
+                <!-- account set8ting -->
+                  <div class="flex flex-col justify-start px-6 items-center gap-4 py-3 text-[#797979] border-b-[1px] border-gray-300 ">
+                   <div class="flex w-full h-full justify-start items-center gap-4">
+                     <i class="fa-solid fa-wallet" style="color: #0362fc;"></i>
+                    <h1>ACCOUNT SETTINGS</h1>
+                   </div>
+                    <div class="capitalize text-[15px] text-black flex flex-col w-full gap-y-4 justify-center items-start ">
+                        <div class=" w-full hover:bg-[#F5FAFF]">profile information</div>
+                        <div class=" w-full hover:bg-[#F5FAFF]">manage address</div>
+                        <div class=" w-full hover:bg-[#F5FAFF]">PAN card information</div>
+                    </div>
+                </div>
+                <!-- payments -->
+                 <div class="flex flex-col justify-start px-6 items-center  gap-4 py-6 text-[#797979] border-b-[1px] border-gray-300 ">
+                   <div class="flex w-full h-full justify-start items-center gap-4">
+                     <i class="fa-solid fa-wallet" style="color: #0362fc;"></i>
+                    <h1>PAYMENTS</h1>
+                   </div>
+                    <div class="capitalize text-[15px] text-black flex flex-col w-full gap-y-4 justify-center items-start ">
+                        <div class=" w-full flex justify-between hover:bg-[#F5FAFF]">Gift Card<span>0</span></div>
+                        <div class=" w-full hover:bg-[#F5FAFF]">Saved UPI</div>
+                        <div class=" w-full hover:bg-[#F5FAFF]">Saved Cards</div>
+                    </div>
+                </div>
+                <!-- my stufyf -->
+                 <div class="flex flex-col justify-start px-6 items-center  gap-4 py-6 text-[#797979] border-b-[1px] border-gray-300 ">
+                   <div class="flex w-full h-full justify-start items-center gap-4">
+                     <i class="fa-solid fa-wallet" style="color: #0362fc;"></i>
+                    <h1>MY STUFF</h1>
+                   </div>
+                    <div class="capitalize text-[15px] text-black flex flex-col w-full gap-y-4 justify-center items-start ">
+                        <div class=" w-full flex justify-between hover:bg-[#F5FAFF]">My Coupon</div>
+                        <div class=" w-full hover:bg-[#F5FAFF]">My Review & Ratings</div>
+                        <div class=" w-full hover:bg-[#F5FAFF]">All Notifications</div>
+                        <div class=" w-full hover:bg-[#F5FAFF]">My Wishlist</div>
+                    </div>
+                </div>
+                <!-- logout
+                 -->
+                 <div class="flex flex-col justify-start px-6 items-center  gap-4 py-6 text-[#F1F3F6]  border-gray-300">
+                    <div class="flex gap-4 justify-start px-2 items-center">
+                        <i class="fa-solid fa-power-off" style="color: #0362FC;"></i>
+                    <a href="/logout" class="text-[#797979]">Logout</a>
+                    </div>
+                 </div>
+             </div>
+        </div>
+        <!-- personal info -->
+        <div class=" bg-white w-[68%] h-[100%] flex flex-col gap-4">
+            <div class="w-full  min-h-[100px] flex flex-col px-7 py-3 gap-5">
+                <div class="flex gap-4"><h1 class="text-[20px] font-medium">Personal information <a href="/editprofileinfo" class="text-[#2874F0] text-[15px]">Edit</a></h1></div>
+                <div>
+                    <input readonly type="text" class="h-[50px] w-[250px] px-5 outline-none rounded-sm bg-[#F1F3F6] text-[#606060]" placeholder="<%= user.name %>">
+                    <!-- <input readonly type="text" class="h-[50px] w-[250px] px-5 outline-none  rounded-sm bg-[#F1F3F6] text-[#606060]" value="kandari"> -->
+                 </div>
+
+            </div>
+            <!-- gender -->
+             <div class="w-full bg min-h-[100px] flex flex-col px-7 py-3 gap-5">
+                <div class="flex gap-4"><h1 class="text-[15px] font-medium">Your Gender</h1></div>
+                <div class="flex gap-3">
+                    <div class="flex justify-center items-center gap-3">
+                        <h1 class="font-semibold"><%= user.gender %></h1>
+                    </div>
+                   
+                 </div>
+
+            </div>
+            <!-- email -->
+            <div class="w-full bg min-h-[100px] flex flex-col px-7 py-3 gap-5"> 
+                <div class="flex gap-4"><h1 class="text-[20px] font-medium">Email Address</div>
+                <div>
+                    <input readonly type="email" class="h-[50px] w-[250px] px-5 outline-none rounded-sm bg-[#F1F3F6] text-[#606060] text-[15px]" value="<%=user.email %>">
+                    
+                 </div>
+
+            </div>
+            <!-- phone -->
+             
+            <div class="w-full bg min-h-[100px] flex flex-col px-7 py-3 gap-5">
+                <div class="flex gap-4"><h1 class="text-[20px] font-medium">Mobile Number <a href="/editprofileinfo" class="text-[#2874F0] text-[15px]">Edit</a></h1></div>
+                <div>
+                    <input readonly type="number" class="h-[50px] w-[250px] px-5 outline-none rounded-sm bg-[#F1F3F6] text-[#606060] text-[15px]" value="<%=user.phone %>">
+                    
+                 </div>
+
+            </div>
+            <!-- FAQ -->
+            <div class="w-full px-7 py-3 bg-">
+                <p>
+                   <div class="text-[22px] font-medium"> FAQs</div>
+                   <br><br>
+<p class="font-medium">What happens when I update my email address (or mobile number)?</p>
+<br>
+Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
+<br><br>
+
+<p class="font-medium">When will my Flipkart account be updated with the new email address (or mobile number)?</p>
+<br>
+It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.
+<br><br>
+<p class="font-medium">What happens to my existing Flipkart account when I update my email address (or mobile number)?</p>
+Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. You'll continue seeing your Order history, saved information and personal details.
+<br><br>
+<p class="font-medium">Does my Seller account get affected when I update my email address?</p>
+Flipkart has a 'single sign-on' policy. Any changes will reflect in your Seller account also.
+                </p>
+            </div>
+            <!-- dwactivate acc -->
+            <div class="w-full  px-7 py-3">
+                <a href="#"><p class="font-medium text-[#2874F0]">Deactivate Account</p></a>
+            </div>
+            <!-- graffiti -->
+            <div class=" w-full  bg-bottom h-[200px] bg-[url('/images/pre/myProfileFooter_4e9fe2.png')] bg-no-repeat"></div>
+        </div>
+    
+</div>
+</div>
+<script>
+    const profileicon=document.querySelector('#profileicon');
+    const updatediconinput=document.querySelector('#updatediconinput');
+    const updatediconsubmitbtn=document.querySelector('#updatediconsubmitbtn');
+    profileicon.addEventListener('click',()=>{
+            updatediconinput.click();
+
+    })
+    updatediconinput.addEventListener('change',()=>{
+        updatediconsubmitbtn.click();
+    })
+    
+
+</script>
+<%- include('./partials/footer.ejs') %>

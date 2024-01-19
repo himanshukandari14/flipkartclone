@@ -1,0 +1,31 @@
+<%- include('./partials/header.ejs') %>
+<div class="bg-[#F1F2F4] h-[100vh] w-[100vw] flex justify-center items-center" >
+    <div class="bg-[white] rounded-md h-[60%] w-[60%] px-[5%] flex flex-col gap-8  ">
+        <div class="w-full  h-[60px] gap-3 flex justify-center items-center text-[35px] font-medium">
+            <h1>Post Your Product</h1>
+            <i class="fa-solid fa-shop" style="color: #1d62d7;"></i>
+        </div>
+        <!-- form for product -->
+        <form class="w-full h-full" action="/upload" method="post" enctype="multipart/form-data">
+          <div class="h-full w-full flex flex-col gap-8 ">
+             <input type="text" class="bg-[#F0F5FF] h-full w-[90%] px-6 outline-none rounded-md" placeholder="Enter your product Name" name="name">
+              <input type="text" class="bg-[#F0F5FF] h-full w-[90%] px-6 outline-none rounded-md" placeholder="Enter your product desc" name="description">
+              <input type="file" class="bg-[#F0F5FF] h-full w-[90%] px-6 outline-none rounded-md" placeholder="select img" name="image">
+               <input type="text" class="bg-[#F0F5FF] h-full w-[90%] px-6 outline-none rounded-md" placeholder="Enter your product Name" name="price">
+                <select name="productcategory" id="">
+                    <option value="selectcategory">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="beauty">Beauty</option>
+                    <option value="grocery">Grocery</option>
+                    
+                </select>
+           <!-- submit -->
+          <div class="w-full h-[200px]  flex justify-center items-center text-white">
+             <input type="submit" value="Post Product" class="bg-blue-600 h-[50px] w-[180px]  rounded-md">
+          </div>
+          </div>
+           
+        </form>
+    </div>
+</div> 
+<%- include('./partials/footer.ejs') %>

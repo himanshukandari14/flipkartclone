@@ -1,0 +1,78 @@
+<%- include('./partials/header.ejs') %>
+ <div class=" bg-white w-[68%] h-[100%] flex flex-col gap-4">
+    <form action="/editprofileinfo" method="post">
+            <div class="w-full  min-h-[100px] flex flex-col px-7 py-3 gap-5">
+                <div class="flex gap-4"><h1 class="text-[20px] font-medium">Personal information <a href="#" class="text-[#2874F0] text-[15px]">Edit</a></h1></div>
+                <div>
+                    <input  type="text" class="h-[50px] w-[250px] px-5 outline-none rounded-sm bg-[#F1F3F6] text-[#606060]" placeholder="<%=user.name %>" name="name" value="<%=user.name %>">
+                    <!-- <input readonly type="text" class="h-[50px] w-[250px] px-5 outline-none  rounded-sm bg-[#F1F3F6] text-[#606060]" value="kandari"> -->
+                 </div>
+
+            </div>
+            <!-- gender -->
+             <div class="w-full bg min-h-[100px] flex flex-col px-7 py-3 gap-5">
+                <div class="flex gap-4"><h1 class="text-[15px] font-medium">Your Gender</h1></div>
+                <div class="flex gap-3">
+                    <div class="flex justify-center items-center gap-3">
+                        <input readonly  type="radio" class="h-[18px] w-[18px] px-5 outline-none rounded-sm bg-[#F1F3F6] text-[#606060]" name="gender">
+                    <label  for="Male">Male</label>
+                    </div>
+                    <div class="flex justify-center items-center gap-3">
+                        <input type="radio" class="h-[18px] w-[18px] px-5 outline-none  rounded-sm bg-[#F1F3F6] text-[#606060]" name="gender" >
+                    <label for="female">Female</label>
+                    </div>
+                 </div>
+
+            </div>
+            <!-- email -->
+            <div class="w-full bg min-h-[100px] flex flex-col px-7 py-3 gap-5"> 
+                <div class="flex gap-4"><h1 class="text-[20px] font-medium">Email Address </div>
+                <div>
+                    <input  type="email" class="h-[50px] w-[250px] px-5 outline-none rounded-sm bg-[#F1F3F6] text-[#606060] text-[15px]" placeholder="himanshukandari14@gmail.com" value="<%=user.email %>">
+                    
+                 </div>
+
+            </div>
+            <!-- phone -->
+             
+            <div class="w-full bg min-h-[100px] flex flex-col px-7 py-3 gap-5">
+                <div class="flex gap-4"><h1 class="text-[20px] font-medium">Mobile Number <a href="/editprofileinformation" class="text-[#2874F0] text-[15px]">Edit</a></h1></div>
+                <div>
+                    <input  type="number" class="h-[50px] w-[250px] px-5 outline-none rounded-sm bg-[#F1F3F6] text-[#606060] text-[15px]" placeholder="9871738638" name="phone" value="<%=user.phone %>">
+                    
+                    
+                 </div>
+                 <div class="flex justify-start">
+                    <input type="submit" class="bg-blue-500 h-[50px] w-[120px]" value="update">
+                 </div>
+</form>
+            </div>
+            <!-- FAQ -->
+            <div class="w-full px-7 py-3 bg-">
+                <p>
+                   <div class="text-[22px] font-medium"> FAQs</div>
+                   <br><br>
+<p class="font-medium">What happens when I update my email address (or mobile number)?</p>
+<br>
+Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
+<br><br>
+
+<p class="font-medium">When will my Flipkart account be updated with the new email address (or mobile number)?</p>
+<br>
+It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.
+<br><br>
+<p class="font-medium">What happens to my existing Flipkart account when I update my email address (or mobile number)?</p>
+Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. You'll continue seeing your Order history, saved information and personal details.
+<br><br>
+<p class="font-medium">Does my Seller account get affected when I update my email address?</p>
+Flipkart has a 'single sign-on' policy. Any changes will reflect in your Seller account also.
+                </p>
+            </div>
+            <!-- dwactivate acc -->
+            <div class="w-full  px-7 py-3">
+                <a href="#"><p class="font-medium text-[#2874F0]">Deactivate Account</p></a>
+            </div>
+            <!-- graffiti -->
+            <div class=" w-full  bg-bottom h-[200px] bg-[url('/images/pre/myProfileFooter_4e9fe2.png')] bg-no-repeat"></div>
+        </div>
+<%- include('./partials/footer.ejs') %>

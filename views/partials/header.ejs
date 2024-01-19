@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slipkart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Add this in the <head> section of your HTML -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <% if(header){ %>
+  <nav class="w-full h-[60px] bg-[#2874F0] flex items-center justify-around px-[20%] text-white font-semibold">
+    <div class="justify-center flex items-center object-contain"><img class="h-[30px]" src="/images/pre/flipkart-plus_8d85f4.png" alt=""></div>
+    <!-- search icon and bar -->
+    <div class="border-2 bg-white border-white flex items-center justify-between px-2 py-1 w-[50%]">
+       
+        <input id="inputusername" class="ml-1 w-full  outline-none text-zinc-400" type="text" placeholder="search products">
+         <i class="text-[#2874F0] ri-search-line "></i>
+    </div>
+    <!-- username -->
+    <h1>Himanshu</h1>
+    <h1>Become a seller</h1>
+    <h1>More</h1>
+    <div class="flex justify-center items-center gap-2">
+      <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+      <h1>Cart</h1>
+      
+      
+    </div>
+    
+  </nav>
+  <!-- product list -->
+  <nav class="w-full h-[40px] shadow-xl bg-[white] flex items-center justify-around px-[15%] text-black font-semibold capitalize">
+    <h1>electronics</h1>
+    <h1>TV & appliances</h1>
+    <h1>men</h1>
+    <h1>women</h1>
+    <h1>baby & kids</h1>
+    <h1>home & furniture</h1>
+    <h1>sports,book and more</h1>
+    <h1>flights</h1>
+    <h1>offer zone</h1>
+    <h1>grocery</h1>
+  </nav>
+  <% } %>

@@ -1,0 +1,544 @@
+<style>
+  /* Add this style block to your HTML or include it in your CSS file */
+  .scroll-container::-webkit-scrollbar {
+    width: 0; /* Hide scrollbar width */
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb {
+    display: none; /* Hide scrollbar thumb */
+  }
+  *{
+    overflow-x: hidden;
+  }
+</style>
+<%- include('./partials/header.ejs') %>
+
+<div class="bg-white h-[400vh] w-[100vw]">
+     <nav class="w-full h-[70px] bg-[white] flex items-center justify-around px-[15%] text-black font-semibold">
+    <div class="justify-center flex items-center object-contain"><img class="h-[40px]" src="/images/pre/fkheaderlogo_exploreplus-44005d.svg" alt=""></div>
+    <!-- search icon and bar -->
+   <a href="/search" class="border-2 bg-[#F0F5FF] rounded-lg border-[#F0F5FF] flex items-center justify-between px-2  w-[50%]">
+    <div class="border-2 bg-[#F0F5FF] rounded-lg border-[#F0F5FF] flex items-center justify-between px-2 py-1 w-[50%]">
+        <i class="text-[#2874F0] ri-search-line "></i>
+        <input id="homesearchbar" class="ml-1 w-full h-[35px] bg-[#F0F5FF] rounded-lg outline-none text-zinc-400" type="text" placeholder=" search products, Brands and More">
+    </div>
+</a>
+
+    <!-- username -->
+    <div class="flex justify-center items-center gap-3">
+        <i class="fa-solid fa-user" style="color: #4a4a4a;"></i>
+    <a href="/profile"><h1 class="cursor-pointer"><%= user.username %></h1></a>
+    </div>
+    <a href="/cart" class="flex justify-center items-center gap-3">
+    <div class="flex justify-center items-center gap-6">
+      
+      <i class="fa-solid fa-cart-shopping" style="color: #4a4a4a;"></i>
+      <h1>Cart</h1>
+      </a>
+      <div class="flex justify-center items-center gap-2">
+        
+      <i class="fa-solid fa-shop" style="color: #4a4a4a;"></i>
+      <h1>Become a seller</h1>
+      <br>
+      <!-- post -->
+      <a href="/upload">
+        <i class="fa-solid fa-plus" style="color: #172a4a;"></i>
+      </a>
+      
+      </div>
+      
+      <i class="fa-solid fa-ellipsis-vertical" style="color: #4a4a4a;"></i>
+      
+      
+    </div>
+    
+  </nav>
+ 
+  <!-- div with padding -->
+  <div class="bg-[#F1F2F4] w-full h-full px-[10%] gap-4 flex flex-col">
+     <!-- catog nav -->
+    <div class="bg-[#FFFFFF] w-full h-[130px] mt-3 flex justify-around items-center px-[10%]">
+      <!-- grocery -->
+      <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/grocery.webp" alt="grocery">
+         <h1 class="font-medium">Grocery</h1>
+      </div>
+      <!-- mobiles -->
+      <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/mobile.webp" alt="mobiles">
+        <h1 class="font-medium">Mobiles</h1>
+      </div>
+      <!-- fashoin -->
+      <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/fashion.webp" alt="fashion">
+         <h1 class="font-medium">Fashion</h1>
+      </div>
+      <!-- electronics -->
+      <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/electronics.webp" alt="Electronics">
+         <h1 class="font-medium">Electronics</h1>
+      </div>
+      <!-- home furniture -->
+       <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/furniture.webp" alt="furniture">
+         <h1 class="font-medium">Home and Furniture</h1>
+      </div>
+      <!-- appliances -->
+       <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/appliances.webp" alt="appliances">
+         <h1 class="font-medium">Appliances</h1>
+      </div>
+      <!-- travel -->
+       <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/travel.webp" alt="travel">
+         <h1 class="font-medium">Travel</h1>
+      </div>
+      <!-- beauty -->
+       <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/beauty.webp" alt="beauty">
+         <h1 class="font-medium">Beauty Toy And More</h1>
+      </div>
+      <!-- two wheelers -->
+       <div class="flex flex-col justify-center items-center">
+        <img src="/images/pre/twowheelers.webp" alt="twowheelers">
+         <h1 class="font-medium">Two Wheelers</h1>
+      </div>
+    </div>
+     <!-- slider -->
+ <!-- slider -->
+<div class="relative bg-white w-full h-[260px] overflow-x-scroll ">
+ 
+  <div class="swiper-container w-full h-[260px] relative" >
+    <div class="swiper-wrapper w-full h-[260px] relative">
+
+      <div class="swiper-slide">
+        <div class="w-full h-full bg-[url('/images/pre/banner1.webp')] bg-no-repeat bg-cover"></div>
+      </div>
+      <div class="swiper-slide">
+        <div class="w-full h-full bg-[url('/images/pre/bankner2.webp')] bg-no-repeat"></div>
+      </div>
+      <div class="swiper-slide">
+        <div class="w-full h-full bg-[url('/images/pre/banner3.webp')] bg-no-repeat"></div>
+      </div>
+
+    </div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-next absolute z-20 right-0 top-1/2 transform -translate-y-1/2"></div>
+    <div class="swiper-button-prev absolute z-20 left-0 top-1/2 transform -translate-y-1/2"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination absolute bottom-4"></div>
+  </div>
+</div>
+<!-- small sliders1 -->
+
+<div class="flex flex-col bg-white justify-center items-start py-6 pr-6">
+  <div class="w-full flex justify-between">
+    <h1 class="px-9 font-medium text-[18px]">Best Of Electronics</h1>
+  <i class="fa-solid fa-right-from-bracket" style="color: #2e5fb2;"></i>
+  </div>
+  <div class="bg-white w-full h-[325px] overflow-auto flex items-center scroll-container px-9">
+
+  <div class="flex space-x-4">
+    <div class="bg-white h-[280px] w-[280px] flex-col  rounded-md border-[2px] border-[#E0E0E0] flex justify-center items-center">
+      <img src="/images/pre/keyboard1.png" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md gap-3 border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center ">
+      <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      </div>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/camera.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>camera</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/pendrive.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1> 
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- small sliders2 -->
+
+<div class="flex flex-col bg-white justify-around items-start py-6 pr-6">
+  <div class="w-full flex justify-between">
+    <h1 class="px-9 font-medium text-[18px]">Beauty, Food,Toy and More</h1>
+  <i class="fa-solid fa-right-from-bracket" style="color: #2e5fb2;"></i>
+  </div>
+  <div class="bg-white w-full h-[325px] overflow-auto flex items-center scroll-container px-9">
+
+  <div class="flex space-x-4">
+    <div class="bg-white h-[280px] w-[280px] flex-col  rounded-md border-[2px] border-[#E0E0E0] flex justify-center items-center">
+      <img src="/images/pre/keyboard1.png" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md gap-3 border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center ">
+      <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      </div>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/camera.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>camera</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/pendrive.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1> 
+    </div>
+  </div>
+</div>
+
+</div>
+  
+<!-- box -->
+<div class="bg-grwhite w-full h-[650px] flex gap-2  justify-between">
+  <div class="bg-white h-full w-[35%] flex flex-wrap justify-center items-center gap-5">
+    <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    <!--  -->
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    <!--  -->
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    
+
+  </div>
+  <!--  -->
+  
+  
+  <div class="bg-white h-full w-[64%] bg-[url('/images/pre/phones.jpg')] bg-no-repeat bg-cover bg-center"></div>
+</div>
+
+<!-- small sliders3 -->
+
+<div class="flex flex-col bg-white justify-center items-start py-6 pr-6">
+  <div class="w-full flex justify-between">
+    <h1 class="px-9 font-medium text-[18px]">Sugugested For You</h1>
+  <i class="fa-solid fa-right-from-bracket" style="color: #2e5fb2;"></i>
+  </div>
+  <div class="bg-white w-full h-[325px] overflow-auto flex items-center scroll-container px-9">
+
+  <div class="flex space-x-4">
+    <div class="bg-white h-[280px] w-[280px] flex-col  rounded-md border-[2px] border-[#E0E0E0] flex justify-center items-center">
+      <img src="/images/pre/keyboard1.png" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md gap-3 border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center ">
+      <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      </div>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/camera.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>camera</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/pendrive.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1> 
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- box -->
+<div class="bg-grwhite w-full h-[650px] flex gap-2  justify-between">
+  <div class="bg-white h-full w-[35%] flex flex-wrap justify-center items-center gap-3">
+    <div class="w-full bg-white h-[40px] text-[20px] font-medium px-6 flex justify-start items-center">Suggested for You</div>
+    <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    <!--  -->
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    <!--  -->
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    
+
+  </div>
+  <!--  -->
+  
+  <div class=" bg-white h-full w-[33%]  bg-no-repeat bg-cover bg-center ">
+    <div class="w-full bg-white h-[60px] text-[20px] font-medium px-6 flex justify-start items-center">Suggested for You</div>
+    <div class= "bg-white h-[580px] w-full flex">
+      <div class=" bg-white h-full w-[50%] flex justify-center items-center">
+         <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+      </div>
+       <div class="bg-white h-full w-[50%] flex flex-col gap-3">
+         <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    <!--  -->
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+       </div>
+    </div>
+   
+  </div>
+  <!-- best quality -->
+  <div class="bg-white h-full w-[35%] flex flex-wrap justify-center items-center gap-3">
+    <div class="w-full bg-white h-[30px] text-[20px] font-medium px-6 flex justify-start items-center">Suggested for You</div>
+    <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    <!--  -->
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    <!--  -->
+     <div class="bg-white h-[280px] rounded-md w-[240px] border-[1px] border-[#E0E0E0] flex flex-col justify-center items-center">
+       <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      <h1 class="text-[green] font-semibold">Min 50% Off</h1>
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+  
+<!-- small sliders4 -->
+
+<div class="flex flex-col bg-white justify-around items-start py-6 pr-6">
+  <div class="w-full flex justify-between">
+    <h1 class="px-9 font-medium text-[18px]">Beauty, Food,Toy and More</h1>
+  <i class="fa-solid fa-right-from-bracket" style="color: #2e5fb2;"></i>
+  </div>
+  <div class="bg-white w-full h-[325px] overflow-auto flex items-center scroll-container px-9">
+
+  <div class="flex space-x-4">
+    <div class="bg-white h-[280px] w-[280px] flex-col  rounded-md border-[2px] border-[#E0E0E0] flex justify-center items-center">
+      <img src="/images/pre/keyboard1.png" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md gap-3 border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center ">
+      <img src="/images/pre/printer.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+      <div>
+        <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+      </div>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/camera.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>camera</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <!--  -->
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/pendrive.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex flex-col justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1>
+    </div>
+    <div class="bg-white h-[280px] w-[280px] rounded-md border-[2px] border-[#E0E0E0] flex-col flex justify-center items-center">
+      <img src="/images/pre/rgb.jpeg" class="hover:scale-[1.05] transition-all 2s" alt="">
+       <h1>Printers</h1>
+      <h1 class="font-medium">From $99</h1> 
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 1500, // Set the delay in milliseconds (3 seconds in this case)
+        disableOnInteraction: false, // Allow manual navigation while autoplay is active
+      },
+    });
+  });
+
+ 
+</script>
+
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,29 @@
+<%- include('./partials/header.ejs') %>
+<div class="w-full min-h-screen bg-zinc-900 text-white py-5 flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center gap-5 px-4">
+      <img class="w-2/3" src="/images/logocampusbook.png" alt="">
+      <form class="w-full" action="/register" method="post">
+        <input required class="px-3 mt-2 py-2 border-2 border-zinc-800 rounded-md block w-full bg-zinc-900" type="text" placeholder="username" name="username">
+        <input required class="px-3 mt-2 py-2 border-2 border-zinc-800 rounded-md block w-full bg-zinc-900" type="text" placeholder="name" name="name">
+        <select required class="px-3 mt-2 py-2 border-2 border-zinc-800 rounded-md block w-full bg-zinc-900" type="text" placeholder="identity" name="identity">
+          <option disabled >Select Account type</option>
+          <option  value="customer">Customer</option>
+          <option value="seller">Seller</option>
+        
+          
+        </select>
+         <input required class="px-3 mt-2 py-2 border-2 border-zinc-800 rounded-md block w-full bg-zinc-900" type="number" placeholder="phone num" name="phone">
+        <input required class="px-3 mt-2 py-2 border-2 border-zinc-800 rounded-md block w-full bg-zinc-900" type="email" placeholder="email" name="email">
+        <input required class="px-3 mt-2 py-2 border-2 border-zinc-800 rounded-md block w-full bg-zinc-900" type="password" placeholder="password" name="password">
+        <select required class="border-zinc-800 rounded-md block w-full bg-zinc-900" name="gender" id="">
+          <option disabled value="">gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <input class="w-full bg-blue-500 px-3 py-3 rounded-md mt-2" type="submit" value="Make New Account">
+        
+      </form>
+      <span>Already have an account ? <a href="/" class="text-blue-500">Log In</a></span>
+    </div>
+  </div>
+<%- include('./partials/footer.ejs') %>

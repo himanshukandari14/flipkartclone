@@ -1,0 +1,40 @@
+<%- include('./partials/header.ejs') %>
+<style>
+    * {
+        overflow-x: hidden;
+    }
+</style>
+<div class="h-[100vh] bg-[#F1F3F6]  w-[100vw] px-[20%] py-[4%]">
+    <!-- cart box -->
+    <div class="min-h-[48vh] bg-white gap-4 w-full flex flex-col justify-center items-center shadow-lg">
+        <% if (Array.isArray(cart.products) && cart.products.length > 0) { %>
+            <% cart.products.forEach(function(cartItem){ %>
+                <div class="h-[27vh] w-full border-t-2 border-b-2 border-gray-400 flex gap-3 ">
+                    <div class="h-full w-full flex">
+                        <div class=" h-full w-[20%] px-5 py-5 overflow-hidden flex justify-center items-center">
+                        <img src="/images/uploads/<%= cartItem.product.image %>" alt="" height="150px" width="120px">
+                    </div>
+                    
+                    <!-- deatils -->
+                    <div class="h-[25vh] w-[60%]  flex flex-col   py-4">
+                        <h1 class="text-[20px] font-sm uppercase"><%= cartItem.product.name %></h1>
+                         <h1 class="text-[20px] font-sm uppercase">₹<%= cartItem.product.price %></h1>
+
+                    
+                    </div>
+                    <div class="h-[25vh] w-[20%]  flex justify-center items-center">
+                        <a href="/remove/product/<%= cartItem.product._id %>"> <div class="bg-green-400 w-[180px] h-[40px] justify-center items-center flex">REMOVE</div></a>
+                       
+                    </div>
+                    </div>
+                    <!-- counter -->
+                    
+                    
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>Your cart is empty</p>
+        <% } %>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>

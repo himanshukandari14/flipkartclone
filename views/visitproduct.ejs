@@ -1,0 +1,71 @@
+<%- include('./partials/header.ejs') %>
+<style>
+    *{
+        overflow-x: hidden;
+    }
+    body{
+        background-color: #F1F3F6;
+    }
+    .scrollable-content {
+    overflow-y: scroll;
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.scrollable-content::-webkit-scrollbar {
+    width: 0px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+    background-color: #ddd;
+}
+</style>
+<div class="w-[100vw] min-h-[100vh] flex justify-center items-center py-[2%] px-[8%] ">
+    <div class="min-h-full  w-[30%] bg-white fixed flex items-center left-[12%] top-[10.5%] ">
+         <div class="h-[80%] w-full   bg-white   flex flex-col items-start py-[3%] px-[3%] justify-center">
+            <div class="border-gray-400 border-2 h-[500px] w-full flex justify-center items-center">
+                <img src="/images/uploads/<%=product.image %>" alt="product image" height="300px" width="300px">
+            </div>
+            <div class="necessary btns h-[200px] w-full  flex justify-center items-center gap-4">
+                <div class="h-[70px] w-[250px] bg-[#FF9F00] justify-center flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping" style="color: white;"></i>
+
+                   <form action="/add-to-cart/<%= product._id %>" method="post">
+  <button type="submit" class="text-white font-semibold">ADD TO CART</button>
+</form>
+                </div>
+                
+                <div class="h-[70px] w-[250px] bg-[#FB641B] flex justify-center items-center gap-2">
+                  
+                    <h1 class="text-white font-semibold">BUY NOW</h1>
+                </div>
+
+            </div>
+            
+         </div>  
+    </div>
+    <div id="product details" class="h-[2000px]  w-[50%] bg-[#FFFFFF] scrollable-content  absolute right-[7.5%] top-[10.5%] px-[3%] py-2 flex flex-col">
+      <div class="text-[22px] font-normal uppercase"><%= product.name %></div>
+      <div class="w-full h-[50px] flex items-center gap-3 ">
+        <div class="text-[19px] flex items-center font-medium text-[#8a8a8a]">1,063 ratings and 503 reviews</div>
+      <img src="/images/pre/fa.png" alt="fa" height="30px" width="80px" >
+   
+    </div>
+    <!-- offfer -->
+    <div class="text-[16px] font-semibold text-[#30a030]">EXTRA 6500 off</div>
+    <div class="flex w-full items-center gap-5">
+        <div class="text-[45px] font-semibold">₹<%=product.price %></div>
+    <div class="text-[22px] text-[#8a8a8a] font-md line-through">₹6500</div>
+    <div class="text-[20px] text-[#30a030] font-md ">46% off</div>
+    </div>
+    
+
+      </div>
+       
+</div>
+<%- include('./partials/footer.ejs') %>

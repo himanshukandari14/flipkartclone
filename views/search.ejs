@@ -1,0 +1,37 @@
+<%- include('./partials/header.ejs') %>
+<div class="w-full min-h-screen bg-zinc-900 px-4 py-5">
+
+    <div class="products">
+      
+
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- js for searchj feature -->
+  <script>
+    const inp=document.querySelector('#inputusername');
+
+    let clutter=""
+    inp.addEventListener("input", function(){
+        axios.get(`/productname/${inp.value}`)
+        .then(function(data){
+            clutter=""
+            data.data.forEach(function(elem){
+                clutter+=`  <a href="/store/product/${elem._id}" class="outline-none">
+            <div class="text-white flex items-center gap-2 mt-5">
+                <div class="image w-[11vw] h-[11vw] rounded-full bg-sky-100 overflow-hidden">
+                    <img src="/images/uploads/${elem.image}" alt="">
+                </div>
+                <div class="text">
+                    <h3>${elem.name}</h3>
+                    <h4 class="text-xs opacity-30 leading-none">${elem.name}</h4>
+                </div>
+            </div>            
+        </a>`
+            })
+            document.querySelector(".products").innerHTML=clutter;
+        })
+    })
+   
+  </script>
+<%- include('./partials/footer.ejs') %>
